@@ -16,8 +16,11 @@ import os
 
 @app.route('/')
 def index():
-    return jsonify(message="This is the beginning of our API")
+    return jsonify(message="Home")
 
+@app.route('/register')
+def register():
+    return "Registration Page"
 
 ###
 # The functions below should be applicable to all Flask apps.
