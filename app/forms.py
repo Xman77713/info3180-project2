@@ -18,3 +18,4 @@ class UploadForm(FlaskForm):
     photo = FileField('Photo', validators=[
     FileRequired(),
     FileAllowed(['jpg', 'png','gif','mp4'],'Upload a photo or Video')])
+    caption = StringField('Caption')
