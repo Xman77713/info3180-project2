@@ -1,21 +1,35 @@
+# Add any form classes for Flask-WTF here
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField
-from wtforms.validators import InputRequired
-from flask_wtf.file import FileAllowed, FileRequired, FileField 
+from wtforms.validators import InputRequired, NumberRange
+from wtforms import IntegerField, PasswordField, StringField, TextAreaField
+from flask_wtf.file import FileAllowed, FileRequired, FileField
 
-class SignupForm(FlaskForm):
-    phone_num = StringField('Phone#', validators=[InputRequired()])
-    fullname = StringField('Fullname', validators=[InputRequired()])
-    username1 = StringField('Username', validators=[InputRequired()])
-    password1 = PasswordField('Password', validators=[InputRequired()])
+class RegisterForm(FlaskForm):
+    username = StringField('Username', validators=[InputRequired()])
+    password = PasswordField('Password', validators=[InputRequired()])
 
+    firstname= StringField('First Name', validators=[InputRequired()])
+    lastname=StringField('Lastname', validators=[InputRequired()])
+    email=StringField('Email', validators=[InputRequired()])
+    location=StringField('Location', validators=[InputRequired()])
+    biography=StringField('Biography', validators=[InputRequired()])
+    
+    profile_photo = FileField('Photo', validators=[
+    FileRequired(),
+    FileAllowed(['jpg', 'png'], 'Images only!')])
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[InputRequired()])
     password = PasswordField('Password', validators=[InputRequired()])
 
-class UploadForm(FlaskForm):
+class PostForm(FlaskForm):
+    caption = StringField('caption', validators=[InputRequired()])
     photo = FileField('Photo', validators=[
     FileRequired(),
-    FileAllowed(['jpg', 'png','gif','mp4'],'Upload a photo or Video')])
-    caption = StringField('Caption')
+    FileAllowed(['jpg', 'png'], 'Images only!')])
+    user_id=IntegerField('User ID', validators=[InputRequired(), NumberRange(min=1)])
+    
+# class UploadForm(FlaskForm):
+#     photo = FileField('Photo', validators=[
+#     FileRequired(),
+#     FileAllowed(['jpg', 'png'], 'Images only!')])

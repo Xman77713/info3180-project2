@@ -1,5 +1,6 @@
 <!-- Patrick actually committed this thorugh alex laptop, glitches happening on the mac-->
 <template>
+    <div style="padding-top: 300px"></div>
     <div v-if="msg != null">
         <div v-if="msg['errors']" class="alert alert-danger" role="alert">
             <li v-for="err in msg['errors']"> {{ err }} </li>
@@ -92,35 +93,23 @@
 <style scoped>
 
 body {
-        background-color: #F6F0E6;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100%;
-    }
+    padding-top: 300px;
+}
+
 .container {
-  width: 100%;
-  display: flex;
-  background-color: white;
-  height: 80%;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100;
+    display: flex;
+    background-color: white;
+    padding: 5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 
 h1 {
   font-weight: bold;
   font-size: large;
-  padding-bottom: 5%;
 }
 
-form{
-  margin-bottom: 20px;
-}
-.form-group mb-3{
-  padding: 10px;
-}
 .form-control{
   align-self: center;
   justify-self: center;
